@@ -7,6 +7,9 @@ import userRoutes from "./routes/userRoutes.js";
 import inquiryRoutes from "./routes/inquiryRoutes.js";
 
 const app = express();
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
 const port = Number(process.env.PORT) || 5000;
 const envOrigins = (process.env.CLIENT_URL || "")
   .split(",")
