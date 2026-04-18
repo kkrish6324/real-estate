@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { getApiBase } from "@/lib/apiUrl";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${getApiBase()}/users/register`, {
+      const response = await fetch("http://localhost:5000/api/users/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

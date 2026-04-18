@@ -9,7 +9,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { getApiBase } from "@/lib/apiUrl";
 
 interface LoginPopupProps {
   open: boolean;
@@ -34,7 +33,7 @@ const LoginPopup = ({
     setLoading(true);
 
     try {
-      const response = await fetch(`${getApiBase()}/users/login`, {
+      const response = await fetch("http://localhost:5000/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

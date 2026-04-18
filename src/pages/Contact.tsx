@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "sonner";
 import { contactInfo } from "@/config/contactInfo";
-import { getApiBase } from "@/lib/apiUrl";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +21,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        `${getApiBase()}/inquiries/submit`,
+        "http://localhost:5000/api/inquiries/submit",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

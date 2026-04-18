@@ -16,7 +16,6 @@ import { sampleProperties } from "@/data/properties";
 import { useState } from "react";
 import { toast } from "sonner";
 import LoginPopup from "@/components/LoginPopup";
-import { getApiBase } from "@/lib/apiUrl";
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -41,7 +40,7 @@ const PropertyDetails = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${getApiBase()}/inquiries/submit`,
+        "http://localhost:5000/api/inquiries/submit",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
